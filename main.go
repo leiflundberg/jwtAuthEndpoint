@@ -20,12 +20,12 @@ func login(c echo.Context) error {
 	username := c.FormValue("username")
 	password := c.FormValue("password")
 
-	if username != "kariadmin" || password != "Password123456" {
+	if username != "Avicii" || password != "rip" {
 		return echo.ErrUnauthorized
 	}
 
 	claims := &jwtCustomClaims{
-		"Kari Baby",
+		"Tim",
 		true,
 		jwt.RegisteredClaims{
 			ExpiresAt: jwt.NewNumericDate(time.Now().Add(time.Hour * 72)),
@@ -45,7 +45,7 @@ func login(c echo.Context) error {
 }
 
 func accessible(c echo.Context) error {
-	return c.String(http.StatusOK, "Accessible")
+	return c.String(http.StatusOK, "Hello, World!")
 }
 
 func restricted(c echo.Context) error {
